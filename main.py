@@ -1,6 +1,7 @@
 import spotipy
 import sys
 import spotipy.util as util
+from datetime import datetime
 
 from spotipy.oauth2 import SpotifyClientCredentials
 def print_tracks(results):
@@ -11,7 +12,9 @@ def print_tracks(results):
             (i + 1 , track['artists'][0]['name'], track['name'],track['id']))
 
 def tracks_to_file(results):
-    f = open("demo.txt","a")
+    date = datetime.now().strftime('%Y-%m-%d')
+    print(date)
+    f = open("on-repeat-{}.txt".format(date),"a")
     for i, item in enumerate(results['items']):
         track = item['track']
         f.write(
