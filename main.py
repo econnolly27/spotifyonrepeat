@@ -13,7 +13,6 @@ def print_tracks(results):
 
 def tracks_to_file(results):
     date = datetime.now().strftime('%Y-%m-%d')
-    print(date)
     f = open("on-repeat-{}.txt".format(date),"a")
     for i, item in enumerate(results['items']):
         track = item['track']
@@ -30,7 +29,7 @@ if __name__ == '__main__':
         username = sys.argv[1]
     else:
         print("Whoops, need your username!")
-        print("usage: python user_playlists_contents.py [username]")
+        print("usage: py main.py [username]")
         sys.exit()
 
     token = util.prompt_for_user_token(username)
